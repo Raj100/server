@@ -69,7 +69,7 @@ const updateNews = async (req, res) => {
 const addNews = async (req, res) => {
     try {
         if(req.file.path){
-            req.body.link = `http://localhost:5001/${req.file.path}`;
+            req.body.link = `https://nitgoa1.vercel.app${req.file.path}`;
         }
         console.log("add news req file",req.file.path);
         console.log("add news req body",req.body);

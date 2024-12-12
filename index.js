@@ -47,6 +47,16 @@ app.get('/static/:filename', (req, res) => {
     });
 });
 
+app.use('/tmp', express.static(path.join(__dirname, 'tmp')));
+app.get('/tmp/:filename', (req, res) => {
+    const filename = req.params.filename;
+    res.sendFile(path.join('tmp', filename), (err) => {
+        if (err) {
+            res.status(err.status).end();
+        }
+    });
+});
+
 app.listen(5001, () => {
     console.log("Server running on port 5001");
 });
